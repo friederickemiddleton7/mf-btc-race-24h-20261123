@@ -10,10 +10,17 @@ Cash earns nothing and a full round trip costs about 26 bps (4 bps fee, 2 bps sl
 order's own price impact), so the bot does not scalp. It holds the asset while the trend is up and
 stands aside when it is not:
 
-- trend line: the mean of the last **60** one-minute closes (one hour);
-- buy when the close is **100 bps above** the trend line;
-- sell when the close is **100 bps below** it, or when it gives back **400 bps** from the best close
-  since entry.
+- trend line: the mean of the last **60** one-minute closes (`TREND_BARS = 60`, one hour),
+  truncated to an integer; nothing is traded before 60 closes exist;
+- buy when the close is strictly more than **100 bps above** the trend line (`BAND_BPS = 100`),
+  spending `min(cash, caps.max_weight_bps x equity / 10000)` and nothing below
+  `fees.min_notional_quote_units`;
+- sell the whole position when the close is strictly more than **100 bps below** the trend line,
+  or when it gives back **400 bps** from the best close since entry (`HARD_STOP_BPS = 400`),
+  whichever comes first;
+- no order at all while `state.warmingUp`.
+
+Every comparison is integer bigint on the harness's own quote units — no float decides an order.
 
 The band is hysteresis: without it a price sitting on the line would buy and sell every minute and
 pay the round trip each time, which is exactly how a busy baseline loses 11% on a rising day.
