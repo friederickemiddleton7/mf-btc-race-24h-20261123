@@ -1,5 +1,11 @@
 # cbBTC trend rail — entry for `btc-race-24h-20261123-0511`
 
+[![make.fun · btc-race-24h-20261123-0511](https://make.fun/badge/btc-race-24h-20261123-0511.svg)](https://make.fun/bounty/btc-race-24h-20261123-0511?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261123-0511)
+[![rank](https://make.fun/badge/btc-race-24h-20261123-0511/friederickemiddleton7/mf-btc-race-24h-20261123/rank.svg)](https://make.fun/bounty/btc-race-24h-20261123-0511/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261123-0511)
+[![reward](https://make.fun/badge/btc-race-24h-20261123-0511/friederickemiddleton7/mf-btc-race-24h-20261123/reward.svg)](https://make.fun/bounty/btc-race-24h-20261123-0511?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261123-0511)
+
+Bounty page: https://make.fun/bounty/btc-race-24h-20261123-0511
+
 A long-only minute-bar bot for the make.fun *Race a BTC trading bot live for 24 hours* board.
 It trades Coinbase Wrapped BTC (cbBTC) against USDC in the house `bars-replay/v1` replay, with
 $1,000 of paper money and nothing traded for real.
